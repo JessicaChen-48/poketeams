@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import {useEffect, useState} from "react"
 import './App.css';
+import getTypes from "./ApiCalls/getTypes"
+import Select from "./Components/Select"
+import PokemonList from "./Components/PokemonList"
+import Loader from "./Components/Loader"
 
 function App() {
+  const initState = []
+  const [types, setTypes] = useState(initState)
+  const [pokes, setPokes] = useState(initState)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(function getTypeOnRender() {
+    async function callGetTypes() {
+      let res = await getTypes();
+      res.splice(-2)
+      setTypes(res)
+      setIsLoading(false)
+    }
+    callGetTypes()
+  }, [])
+
+  function changePokes(pokes) {
+    setPokes(pokes)
+  }
+
+  const setLoading = bool => setIsLoading(bool)
+
+
+  if (isLoading) return "loading ..."
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Select changePokes={changePokes} types={types} setLoading={setLoading}/>
+      <PokemonList pokes={pokes} types={types} setLoading={setLoading}/>
+    </>
   );
 }
 
