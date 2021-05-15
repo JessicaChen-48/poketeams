@@ -33,14 +33,12 @@ function PokemonCard({ poke, pokeType }) {
 
   return (
     <>
-      <div className="card" style={{width:"18rem"}}>
+      <div className="card">
         <img src={`${sprite}`} alt={`${name}`} className="card-img-top"></img>
-        <div className="card-body">
           <h5 className="card-title">
             {name.slice(0, 1).toUpperCase() + name.substr(1, name.length)}
           </h5>
           <p className="card-text">{flavorText}</p>
-        </div>
       </div>
     </>
   );
