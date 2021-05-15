@@ -41,10 +41,6 @@
   text-align: center;
 }
 
-.pokesContainer {
-  margin-left: 10%;
-}
-
 
 .select {
   width: 100%;
@@ -69,4 +65,8 @@
   background-color: var(--select-arrow);
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   justify-self: end;
+}
+
+.background .backgroundImage{
+  background-repeat: no-repeat;
 }
