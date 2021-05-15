@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import getPokes from "../ApiCalls/getPokes";
 
-function Select({types, changePokes, setLoading}) {
+function Select({types, changePokes, setLoading, setCurrType}) {
 
   async function handleChange(e) {
     setLoading(true)
     let pokeType = e.target.value;
     let res = await getPokes(pokeType)
     setLoading(false)
+    setCurrType(pokeType)
     changePokes(res)
   }
 
