@@ -37,10 +37,9 @@ function App() {
     <>
       <div className="pokesIntro">
         <h1>
-          Have you always wanted be a gym leader <br />
-          and lead a specialized team of Pokemon?
+          Have you always wanted be a gym leader?
         </h1>
-        <p>Now you can! Select a Pokemon type below & we'll make you a team!</p>
+        <p>Now you can! Select a Pokemon type below & we'll make you a specialized team!</p>
 
         <Select
           className="select"
