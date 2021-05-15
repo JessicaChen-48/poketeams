@@ -1,32 +1,29 @@
-import steel from "./types_imgs/steel.png";
 
-function Background() {
+function getBackground(type) {
   let types = [
-    "normal",
-    "flying",
-    "flying",
-    "poison",
-    "ground",
-    "rock",
-    "bug",
-    "ghost",
-    "steel",
-    "fire",
-    "water",
-    "grass",
-    "electric",
-    "psychic",
-    "ice",
-    "dragon",
-    "dark",
-    "fairy"
+    "./types_imgs/normal.png",
+    "./types_imgs/fighting.png",
+    "./types_imgs/flying.png",
+    "./types_imgs/poison.png",
+    "./types_imgs/ground.png",
+    "./types_imgs/rock.png",
+    "./types_imgs/bug.png",
+    "./types_imgs/ghost.png",
+    "./types_imgs/steel.png",
+    "./types_imgs/fire.png",
+    "./types_imgs/water.png",
+    "./types_imgs/grass.png",
+    "./types_imgs/electric.png",
+    "./types_imgs/psychic.png",
+    "./types_imgs/ice",
+    "./types_imgs/dragon.png",
+    "./types_imgs/dark.png",
+    "./types_imgs/fairy.png"
   ];
-  console.log(types.length)
+ 
+  return types[type-1];
 
-  return (
-    <>
-    </>
-  )
+
 }
 
-export default Background;
+export default getBackground;

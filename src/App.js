@@ -4,7 +4,7 @@ import getTypes from "./ApiCalls/getTypes";
 import Select from "./Components/Select";
 import PokemonList from "./Components/PokemonList";
 import Loader from "./Components/Loader";
-import background from "./types_imgs/steel.png";
+import getBackground from "./Background";
 
 function App() {
   const initState = [];
@@ -29,7 +29,7 @@ function App() {
 
   const setLoading = (bool) => setIsLoading(bool);
 
-  console.log("=====curr", currType);
+  getBackground(currType)
 
   if (isLoading) return <Loader />;
 
