@@ -12,7 +12,7 @@ function Select({types, changePokes, setLoading}) {
   }
 
   return (
-    <select onChange={handleChange} name="types" id="types">
+    <select className="select" onChange={handleChange} name="types" id="types">
       <option>Select a Type</option>
       {types.map((type, i) =>
       <option key={i+1} value={i+1}>{type.slice(0, 1).toUpperCase() + type.substr(1, type.length)}</option>)}
