@@ -1,10 +1,10 @@
 import "./Loader.css"
+import ball from "./pokeball_PNG8.png"
 
 function Loader() {
   return (
     <div className="container">
-      <div className="pokeball">
-      </div>
+      <img src={ball}></img>
     </div>
   )
  
