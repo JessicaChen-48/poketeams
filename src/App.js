@@ -34,7 +34,7 @@ function App() {
   return (
     <>
     <div className="pokesIntro">
-    <h1>Have you always wanted to lead a Pokemon team?</h1>
+    <h1>Have you always wanted be a gym leader and lead a specialized team of Pokemon?</h1>
     <p>Now you can! Select a Pokemon type below & we'll make you a team!</p>
     
       <Select className="select" changePokes={changePokes} types={types} setLoading={setLoading}/>
