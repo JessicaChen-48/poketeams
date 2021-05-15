@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import getPokes from "../ApiCalls/getPokes";
 
 function Select({types, changePokes, setLoading, setCurrType}) {
