@@ -5,6 +5,7 @@ import Select from "./Components/Select";
 import PokemonList from "./Components/PokemonList";
 import Loader from "./Components/Loader";
 import getBackground from "./Background";
+import bug from "./types_imgs/bug.png"
 
 function App() {
   const initState = [];
@@ -29,7 +30,7 @@ function App() {
 
   const setLoading = (bool) => setIsLoading(bool);
 
-  getBackground(currType)
+  let background = getBackground(currType)
 
   if (isLoading) return <Loader />;
 
@@ -49,7 +50,7 @@ function App() {
           setCurrType={setCurrType}
         />
       </div>
-        <div className="pokesContainer">
+        <div className="pokesContainer" style={{backgroundImage: `url(${background})` }}>
           <PokemonList pokes={pokes} types={types} setLoading={setLoading} />
         </div>
     </>
