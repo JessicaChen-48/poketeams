@@ -24,10 +24,6 @@ function App() {
     callGetTypes();
   }, []);
 
-  // useEffect(function changeBgOnTypeChange() {
-
-  // }, [currType])
-
   function changePokes(pokes) {
     setPokes(pokes);
   }
