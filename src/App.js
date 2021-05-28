@@ -4,8 +4,8 @@ import getTypes from "./ApiCalls/getTypes";
 import Select from "./Components/Select";
 import PokemonList from "./Components/PokemonList";
 import Loader from "./Components/Loader";
-import getBackground from "./Background";
-import bug from "./types_imgs/bug.png"
+import backgrounds from "./Background";
+import bug from "./types_imgs/bug.png";
 
 function App() {
   const initState = [];
@@ -24,23 +24,28 @@ function App() {
     callGetTypes();
   }, []);
 
+  // useEffect(function changeBgOnTypeChange() {
+
+  // }, [currType])
+
   function changePokes(pokes) {
     setPokes(pokes);
   }
 
   const setLoading = (bool) => setIsLoading(bool);
 
-  let background = getBackground(currType)
+  let background = backgrounds[currType];
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <i className="fas fa-2x fa-circle-notch fa-spin"></i>;
 
   return (
     <>
       <div className="pokesIntro">
-        <h1>
-          Have you always wanted be a gym leader?
-        </h1>
-        <p>Now you can! Select a Pokemon type below & we'll make you a specialized team!</p>
+        <h1>Have you always wanted be a gym leader?</h1>
+        <p>
+          Now you can! Select a Pokemon type below & we'll make you a
+          specialized team!
+        </p>
 
         <Select
           className="select"
@@ -50,9 +55,12 @@ function App() {
           setCurrType={setCurrType}
         />
       </div>
-        <div className="pokesContainer" style={{backgroundImage: `url(${background})` }}>
-          <PokemonList pokes={pokes} types={types} setLoading={setLoading} />
-        </div>
+      <div
+        className="pokesContainer"
+      >
+        <PokemonList pokes={pokes} types={types} setLoading={setLoading} />
+      </div>
+      <div className="footer" style={{ backgroundImage: `url(${background})`}}></div>
     </>
   );
 }

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import getPoke from "../ApiCalls/getPoke";
-import "./PokemonCard.css"
+import "./PokemonCard.css";
 
-function PokemonCard({ poke, pokeType }) {
-
+function PokemonCard({ poke, pokeType, ballOrPoke }) {
   const [newPoke, setNewPoke] = useState({
     name: "",
     sprite: "",
     flavorText: "",
   });
 
+  const [pokeLoaded, setPokeLoaded] = useState(false);
 
   const { pokemon } = poke;
   const { url } = pokemon;
@@ -28,17 +28,20 @@ function PokemonCard({ poke, pokeType }) {
     [pokeType]
   );
 
-
   const { name, sprite, flavorText } = newPoke;
 
   return (
     <>
       <div className="card">
-        <img src={`${sprite}`} alt={`${name}`} className="card-img-top"></img>
-          <h5 className="card-title">
-            {name.slice(0, 1).toUpperCase() + name.substr(1, name.length)}
-          </h5>
-          <p className="card-text">{flavorText}</p>
+        { ballOrPoke === "ball" ?  
+          <img src={`${sprite}`} alt={`${name}`} className="card-img-top" style={{display: "none"}}></img>
+        : 
+          <img src={`${sprite}`} alt={`${name}`} className="card-img-top" style={pokeLoaded ? {} : {display: "none"}} onLoad={() => setPokeLoaded(true)}></img> 
+        }
+        <h5 className="card-title">
+          {name.slice(0, 1).toUpperCase() + name.substr(1, name.length)}
+        </h5>
+        <p className="card-text">{flavorText}</p>
       </div>
     </>
   );

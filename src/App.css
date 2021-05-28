@@ -41,7 +41,6 @@
   text-align: center;
 }
 
-
 .select {
   width: 100%;
   min-width: 15ch;
@@ -57,7 +56,6 @@
   align-items: center;
 }
 
-
 .select::after {
   content: "";
   width: 0.8em;
@@ -67,6 +65,15 @@
   justify-self: end;
 }
 
-.pokesContainer{
-  background-repeat: no-repeat;
+
+.fas {
+  font-size: 20rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  height: 19vh;
+  background-position: center;
+  opacity: .8;
 }
